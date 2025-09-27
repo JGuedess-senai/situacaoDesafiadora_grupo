@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo da Tela Inicial */
+.cenario {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(#87ceeb, #e0f6ff);
+    transition: background 3s cubic-bezier(0.4,0,0.2,1);
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+}
+
+.nuvem {
+    position: absolute;
+    width: 500px;
+    animation: clouds-animation 13s infinite linear;
+    margin-top: 70px;
+}
+
+
+.logo {
+    display: flex;
+    justify-content: center;
+}
+
+.logo img {
+    z-index: 10;
+    width: 400px;
+}
+
+.botao {
+    display: flex;
+    justify-content: center;
+}
+
+.botao button {
+    background-color: #4169E1;
+}
+
+.botao button:hover {
+    background-color: #27408B;
+    color: white;
+}
+
+.personagens {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.botao button, .personagens select {
+    padding: 15px;
+    width: 200px;
+    border-radius: 5px;
+    z-index: 10;
+    cursor: pointer;
+    font-family: 'Pixelify Sans';
+    font-size: 20px;
+}
+
+.area-person {
+    position: absolute;
+    display: flex;
+    margin-top: 270px;
+    animation: personagem-animation 5s infinite linear;
+}
+
+.area-person img {
+    z-index: 10;
+}
+
+.chao img {
+    position: fixed;
+    bottom: 0;
+}
+
+/* Estilo do Jogo */
+.game-board {
+    width: 100%;
+    height: 945px;
+    border-bottom: 20px solid rgb(35, 160, 35);
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(#87ceeb, #e0f6ff);
+    transition: background 2s cubic-bezier(0.4,0,0.2,1);
+}
+
+.pipe {
+    position: absolute;
+    bottom: 0;
+    width: 80px;
+    animation: pipe-animation 2s infinite linear;
+}
+
+.mario {
+    width: 150px;
+    position: absolute;
+    bottom: -10px;
+}
+
+.jump {
+    animation: jump 800ms ease-out;
+}
+
+.clouds {
+    position: absolute;
+    width: 500px;
+    animation: clouds-animation 20s infinite linear;
+    margin: 70px 0;
+}
+
+.moeda {
+    position: absolute;
+    bottom: 120px;
+    width: 50px;
+    animation: moeda-animation;
+}
+
+.vidas {
+font-size: 30px;
+    font-family: 'Pixelify Sans';
+    margin: 20px 100px;
+    z-index: 100;
+    position: absolute;
+    background-color: black;
+    color: red;
+    width: 200px;
+    text-align: center;
+    border-radius: 5px;
+    border: 4px solid white;
+    border-style: dashed;
+}
+
+.pontuacao {
+    font-size: 30px;
+    font-family: 'Pixelify Sans';
+    margin: 20px 100px;
+    z-index: 100;
+    position: absolute;
+    right: 0;
+    background-color: black;
+    color: white;
+    width: 300px;
+    text-align: center;
+    border-radius: 5px;
+    border: 4px solid white;
+    border-style: dashed;
+}
+
+.icone-coracao {
+    width: 25px;
+    height: 25px;
+    margin-right: 4px;
+    vertical-align: middle;
+    filter: drop-shadow(0 0 2px #fff6);
+    transition: opacity 0.3s;
+}
+
+
+/* Tela de game-over */
+.game-over {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 1s ease forwards;
+}
+
+.game-over button {
+    padding: 15px;
+    width: 200px;
+    border-radius: 5px;
+    z-index: 10;
+    cursor: pointer;
+    font-family: 'Pixelify Sans';
+    font-size: 20px;
+    background-color: #4169E1;
+}
+
+.game-over button:hover {
+    background-color: #27408B;
+    color: white;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes moeda-animation {
+    from {
+        right: 0;
+    }
+    to {
+        right: 100%;
+    }
+}
+
+@keyframes personagem-animation {
+    from {
+        left: -80px;
+    }
+    to {
+        left: 100%;
+    }
+}
+
+@keyframes pipe-animation {
+    from {
+        right: -80px;
+    }
+    to {
+        right: 100%;
+    }
+}
+
+@keyframes jump {
+    0% {bottom: 0;}
+    40% {bottom: 180px;}
+    50% {bottom: 180px;}
+    100% {bottom: 5px;}
+}
+
+@keyframes clouds-animation {
+    from  {                                                       
+        right: -550px;
+    }
+    to {
+        right: 100%;
+    }
+}

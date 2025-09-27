@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="_css/style_jogo.css">
+    <link rel="shortcut icon" href="_imagens/logo-barra.png" type="image/x-icon">
+    <title>Jogo-Mario Running</title>
+</head>
+
+<body>
+    <!-- parte da Tela Inicial -->
+    <audio id="musica" autoplay loop muted>
+        <source src="_sound/inicial.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="audio-pulo" src="_sound/pulo.mp3"></audio>
+    <audio id="audio-derrota" src="_sound/derrota.mp3"></audio>
+    <audio id="audio-alerta" src="_sound/alerta.mp3" loop></audio>
+    <audio id="audio-moeda" src="_sound/moeda.mp3"></audio>
+
+    <!-- Parte da tela Inicial -->
+    <div class="cenario" id="inicia">
+        <img class="nuvem" src="_imagens/clouds.png">
+
+        <div class="logo">
+            <img src="_imagens/logo-jogo.png" alt="logo">
+        </div>
+
+        <div class="botao">
+            <button onclick="jogar()">Iniciar</button>
+        </div>
+
+        <div class="personagens">
+            <select id="escolhaPerson">
+                <option value="">Personagem</option>
+                <option value="mario">Mario</option>
+                <option value="sonic">Sonic</option>
+                <option value="link">Link-Zelda</option>
+                <option value="kirby">Kirby</option>
+            </select>
+        </div>
+
+        <div class="area-person" id="area-personagem">
+            <img id="imagem-personagem" src="" alt="Personagem" width="150" style="display: none;">
+        </div>
+
+        <div class="chao">
+            <img src="_imagens/cenario.png" alt="">
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            const selectPersonagem = document.getElementById('escolhaPerson');
+            const imagemPersonagem = document.getElementById('imagem-personagem');
+            const musica = document.getElementById("musica");
+
+            // troca do personagem na tela inicial
+            selectPersonagem.addEventListener('change', function () {
+                const valorSelecionado = this.value;
+
+                if (valorSelecionado === 'mario') {
+                    imagemPersonagem.src = '_media/mario.gif';
+                    imagemPersonagem.alt = 'gif-Mario';
+                    imagemPersonagem.style.display = 'block';
+                } else if (valorSelecionado === 'sonic') {
+                    imagemPersonagem.src = '_media/sonic.gif';
+                    imagemPersonagem.alt = 'gif-Sonic';
+                    imagemPersonagem.style.display = 'block';
+                } else if (valorSelecionado === 'link') {
+                    imagemPersonagem.src = '_media/link.gif';
+                    imagemPersonagem.alt = 'gif-Link';
+                    imagemPersonagem.style.display = 'block';
+                } else if (valorSelecionado === 'kirby') {
+                    imagemPersonagem.src = '_media/kirby.gif';
+                    imagemPersonagem.alt = 'gif-Kirby';
+                    imagemPersonagem.style.display = 'block';
+                } else {
+                    imagemPersonagem.src = '';
+                    imagemPersonagem.style.display = 'none';
+                }
+            });
+
+            // libera o áudio só depois do primeiro clique
+            document.body.addEventListener("click", () => {
+                musica.muted = false;
+                musica.play();
+            }, { once: true });
+
+            // Troca de fundo da tela inicial a cada 3s, com transição suave
+            const backgrounds = [
+                'linear-gradient(#87ceeb, #e0f6ff)', // dia
+                'linear-gradient(#E42E0C, #F7B402)', // por do sol
+                'linear-gradient(#000030, #000E9D)'  // noite
+            ];
+            let bgIndex = 0;
+            setInterval(() => {
+                bgIndex = (bgIndex + 1) % backgrounds.length;
+                telaInicial.style.background = backgrounds[bgIndex];
+            }, 3000);
+        });
+    </script>
+
+    <!-- parte do jogo -->
+    <div class="game-board" style="display: none;">
+        <img src="_imagens/clouds.png" class="clouds">
+        <img src="" class="mario">
+        <img src="_imagens/pipe.png" class="pipe">
+        <img src="_media/money.gif" class="moeda" style="display: none;">
+
+        <div class="vidas">
+            <p>Vidas:
+                <span class="conta-vidas">3</span>
+            </p>
+        </div>
+
+        <div class="pontuacao">
+            <p>Pontuação
+                <span class="conta-pontos">0</span>
+            </p>
+        </div>
+
+        <div class="game-over" style="display: none;">
+            <img src="_imagens/caveira.png" alt="Imagem de Game-Over">
+            <button onclick="reiniciarJogo()">Reiniciar Jogo</button>
+        </div>
+    </div>
+    <script src="_javascript/main_jogo.js" defer></script>
+</body>
+
+</html>

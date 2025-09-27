@@ -1,0 +1,155 @@
+* {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #D5D3CA;
+}
+
+.navbar li h1 {
+    color: white;
+    position: absolute;
+    left: 45%;
+    top: 20px;
+    font-size: 50px;
+}
+
+.navbar {
+    list-style-type: none;
+    padding: 20px;
+    margin: 10px;
+    overflow: hidden;
+    background-color: black;
+    border-radius: 10px;
+}
+
+.navbar li {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+.navbar li a {
+    display: block;
+    color: white;
+    background-color: black;
+    text-align: center;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 25px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.inicio a:hover {
+    background-color: #E5322A;
+    color: black;
+    border-radius: 5px;
+}
+
+.cadastro a:hover {
+    background-color: #D5D3CA;
+    color: black;
+    border-radius: 5px;
+}
+
+.agenda a:hover {
+    background-color: #CFB645;
+    color: black;
+    border-radius: 5px;
+}
+
+.evento a:hover {
+    background-color: #645419;
+    color: black;
+    border-radius: 5px;
+}
+
+.img-logo {
+    width: 80px;
+    position: absolute;
+    top: 17px;
+    right: 30px;
+}
+
+.container {
+    background-color: white;
+    padding: 80px;
+    margin: 50px 100px;
+    border-radius: 10px;
+}
+
+.menu{
+    margin: -50px 0;
+    background-color: black;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.menu li {
+    display: inline-block;
+    margin-left: 30px;
+}
+
+.menu li a {
+    display: block;
+    color: white;
+    background-color: black;
+    text-align: center;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+.menu li a:hover {
+    background-color: #D5D3CA;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.menu h1 {
+    color: white;
+    float: right;
+    padding-right: 30px;
+    padding-top: 5px;
+}
+
+.area-imagens {
+    display: flex;
+    justify-content: space-between;
+    margin: 100px 0;
+}
+
+.area-imagens img {
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+    border: solid 2px red;
+}
+
+.area-videos {
+    display: flex;
+    justify-content: space-around;
+    margin: 100px 0;
+}
+
+.area-albuns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.area-albuns h1 {
+    color: black;
+}
+
+.area-albuns img {
+    width: 200px;
+}
+
+.area-albuns button {
+    border: none;
+    background: none;
+    padding: 0;
+}
